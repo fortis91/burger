@@ -1,0 +1,38 @@
+#!/bin/bash
+
+clear
+
+function createFolders() {
+	mkdir -v config controllers db models
+	mkdir -pv views/layouts
+	mkdir -pv public/assets/css
+	mkdir -pv public/assets/img
+}
+
+function createFiles() {
+	touch  config/connection.js config/orm.js
+	touch  controllers/burgers_controller.js
+	touch  db/schema.sql db/seeds.sql
+	touch  models/burger.js
+	touch  public/assets/css/burger_style.css
+	touch  server.js
+	touch  views/index.handlebars
+	touch  views/layouts/main.handlebars
+}
+
+function copyFiles() {
+	cp -v ../repo-setup/dotEnv .env
+	#cp -v ../repo-setup/dotGitignore .gitignore
+}
+
+function installNPM() {
+	npm init -y
+	npm install nodemon
+	npm install express
+	npm install mysql
+	npm install express-handlebars
+}
+
+createFolders
+createFiles
+copyFiles
