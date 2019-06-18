@@ -7,10 +7,23 @@ var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function (req, res) {
-    burger.all(function (data) {
-        console.log('Retrieved '+data.length +' burgers, sending to view');
+    burger.all(function (rows) {
+        console.log('Retrieved ' + rows.length + ' burgers, sending to view');
+        console.log(rows);
+        let showAvailable = false;
+        let showEaten = false;
+        for (row in rows) {
+            if (rows[row].devoured) {
+                showEaten = true;
+            } else {
+                showAvailable = true;
+            }
+        }
+     
         var hbsObject = {
-            burgers: data
+            burgers: rows,
+            showAvailable: showAvailable,
+            showEaten: showEaten
         };
         // console.log(hbsObject);
         res.render("index", hbsObject);
