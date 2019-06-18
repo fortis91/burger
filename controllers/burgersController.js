@@ -9,7 +9,7 @@ var burger = require("../models/burger.js");
 router.get("/", function (req, res) {
     burger.all(function (rows) {
         console.log('Retrieved ' + rows.length + ' burgers, sending to view');
-        console.log(rows);
+        // console.log(rows);
         let showAvailable = false;
         let showEaten = false;
         for (row in rows) {
