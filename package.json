@@ -1,0 +1,28 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "<!-- PROJECT LOGO --> <br /> <p align=\"center\">   <!-- <a href=\"https://github.com/othneildrew/Best-README-Template\">     <img src=\"logo.png\" alt=\"Logo\" width=\"80\" height=\"80\">   </a> -->",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/nodemon/bin/nodemon.js server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fortis91/burger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fortis91/burger/issues"
+  },
+  "homepage": "https://github.com/fortis91/burger#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
