@@ -7,13 +7,19 @@ dotenv.config();
 const MYSQL_USER = process.env.MYSQL_USER;
 const MYSQL_SECRET = process.env.MYSQL_SECRET;
 
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: MYSQL_USER,
-    password: MYSQL_SECRET,
-    database: "burgers_db"
-});
+let connection = null;
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    connection = mysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: MYSQL_USER,
+        password: MYSQL_SECRET,
+        database: "burgers_db"
+    
+    })
+};
 
 // Make connection.
 connection.connect(function (err) {
